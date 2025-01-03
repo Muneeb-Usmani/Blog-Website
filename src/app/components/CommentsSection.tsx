@@ -70,7 +70,6 @@ const CommentsSection = () => {
           </button>
         </div>
 
-        {/* Comments List */}
         <div className="space-y-6">
           {comments.map((c, index) => (
             <div

@@ -3,13 +3,14 @@ import { sanityFetch } from "@/app/sanity/live";
 import imageUrlBuilder from "@sanity/image-url";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { defineQuery } from "next-sanity";
-import { PortableText } from "@portabletext/react";
+import { PortableText, PortableTextComponents} from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Head from "next/head";
 import { CalendarIcon, PencilIcon } from "@heroicons/react/24/solid";
 import CommentsSection from "@/app/components/CommentsSection";
+
 
 const BLOG_QUERY = defineQuery(`*[slug.current == $slug && _type == "post"][0]{
   title,
@@ -26,7 +27,7 @@ const urlFor = (source: SanityImageSource) =>
     ? imageUrlBuilder({ projectId, dataset }).image(source)
     : null;
 
-const myPortableTextComponents = {
+const myPortableTextComponents: PortableTextComponents = {
   types: {
     image: ({ value }: { value: any }) => {
       const imageUrl = urlFor(value)?.width(800).height(400).url();
@@ -42,23 +43,28 @@ const myPortableTextComponents = {
       );
     },
   },
+  block: {
+    h1: ({ children }) => <h1 className="text-4xl font-bold">{children}</h1>,
+    h2: ({ children }) => <h2 className="text-3xl font-bold">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-2xl font-bold">{children}</h3>,
+    h4: ({ children }) => <h4 className="text-xl font-bold">{children}</h4>,
+    blockquote: ({ children }) => <blockquote className="border-l-4 pl-4 italic">{children}</blockquote>,
+    normal: ({ children }) => <p className="text-base">{children}</p>,
+  },
   marks: {
-    link: ({
-      children,
-      value,
-    }: {
-      children: React.ReactNode;
-      value: { href: string };
-    }) => (
-      <a
-        href={value.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-600 underline hover:text-blue-800"
-      >
+    strong: ({ children }) => <strong className="font-bold">{children}</strong>,
+    em: ({ children }) => <em className="italic">{children}</em>,
+    link: ({ value, children }) => (
+      <a href={value.href} className="text-blue-600 hover:underline">
         {children}
       </a>
     ),
+  },
+  list: {
+    bullet: ({ children }) => <ul className="list-disc pl-5">{children}</ul>,
+  },
+  listItem: {
+    bullet: ({ children }) => <li className="mb-1">{children}</li>,
   },
 };
 
@@ -122,27 +128,29 @@ export default async function BlogPage({
 
         <section className="container mx-auto px-4 py-12 flex items-center flex-col md:flex-row">
           <div className="hidden md:block sm:block sm:w-[7%] md:w-[15%]"></div>
-          <article className="prose prose-lg max-w-none text-gray-800 sm:w-[85%] md:w-[70%] w-full">
+            <article className="prose prose-lg max-w-none text-gray-800 sm:w-[85%] md:w-[70%] w-full space-y-8">
             <div className="flex flex-col items-center">
               <p className="text-gray-600 font-semibold ">Publisher Details</p>
               <div className="flex items-center justify-center space-x-4 mb-8 text-gray-600 italic">
-                {author?.name && (
-                  <div className="flex items-center space-x-1">
-                    <PencilIcon className=" h-5 w-5" />
-                    <span> {author.name}</span>
-                  </div>
-                )}
-                {formattedDate && (
-                  <div className="flex items-center space-x-1">
-                    <CalendarIcon className="h-5 w-5" />
-                    <span>{formattedDate}</span>
-                  </div>
-                )}
+              {author?.name && (
+                <div className="flex items-center space-x-1">
+                <PencilIcon className=" h-5 w-5" />
+                <span> {author.name}</span>
+                </div>
+              )}
+              {formattedDate && (
+                <div className="flex items-center space-x-1">
+                <CalendarIcon className="h-5 w-5" />
+                <span>{formattedDate}</span>
+                </div>
+              )}
               </div>
             </div>
 
-            <PortableText value={body} components={myPortableTextComponents} />
-          </article>
+            <div className="space-y-4">
+  <PortableText value={body} components={myPortableTextComponents} />
+</div>
+            </article>
 
           <div className="hidden md:block sm:block sm:w-[7%] md:w-[15%]"></div>
         </section>

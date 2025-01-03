@@ -28,7 +28,7 @@ export default async function IndexPage() {
 
       <section className="container mx-auto">
         <ul className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post) => (
+          {posts.map((post: { _id: string; title: string; slug: string; authorName: string; imageUrl: string; publishedAt: string }) => (
             <li
               key={post._id}
               className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105"
