@@ -12,7 +12,7 @@ export default function FeaturesSection() {
           <div className="bg-white shadow-lg rounded-lg p-6 text-center">
             <h3 className="text-2xl font-bold">Interactive Learning</h3>
             <p className="mt-4 text-gray-600">
-              Hands-on exhibits designed to spark curiosity and deepen understanding.
+              Hands on exhibits designed to spark curiosity and deepen understanding.
             </p>
           </div>
           <div className="bg-white shadow-lg rounded-lg p-6 text-center">
