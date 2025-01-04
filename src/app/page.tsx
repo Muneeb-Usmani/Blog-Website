@@ -1,23 +1,17 @@
-import Link from 'next/link'
-import React from 'react'
-import NavBar from './components/NavBar'
+import Banner from './components/Banner';
+import Content from './components/Content';
+import FeaturesSection from './components/Features';
+import Newsletter from './components/NewsLetter';
+import TravelWithUs from './components/TravelWithUs';
 
-const Home = () => {
+export default function HomePageBanner() {
   return (
-<>
-<div className='flex items-center justify-center'>
-
-<div>
-  <h1 className='font-bold'>
-
-<Link href={"/blog"}>
-Blog
-</Link>
-  </h1>
-</div>
-</div>
-
-</>  )
+    <>
+      <Banner/>
+      {/* <FeaturesSection/> */}
+      <Content/>
+      <TravelWithUs/>
+      <Newsletter/>
+      </>
+  );
 }
-
-export default Home
