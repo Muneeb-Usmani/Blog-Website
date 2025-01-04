@@ -10,7 +10,7 @@ const Content = () => {
 
         <p className="text-lg text-gray-700 leading-relaxed mb-6 text-center">
           At Sea World, we believe in blending education with adventure through
-          our development programs & camps. Our kids’ summer camp programs offer
+          our development programs & camps. Our kids&apos; summer camp programs offer
           a one-of-a-kind opportunity for youth to connect with the ocean, build
           outdoor skills, and enjoy learning outside the traditional classroom.
           Camper explore marine ecosystems, environmental conservation, and
@@ -19,7 +19,7 @@ const Content = () => {
         </p>
         <p className="text-lg text-gray-700 leading-relaxed mb-6 text-center">
           In addition to our summer camps, Sea Smart offer's a variety of
-          enriching school programs designed to complement British Columbia’s
+          enriching school programs designed to complement British Columbia&apos;s
           curriculum. From science-based workshops to outdoor beach excursions
           and project-based learning, our programs inspire students to develop a
           lifelong love for the environment. We foster creativity, teamwork, and
