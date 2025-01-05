@@ -22,7 +22,7 @@ export default function Contact() {
 
           <div className="mt-6">
             <h2 className="text-xl font-semibold mb-4">
-              <FaPhoneAlt className="inline-block mr-3" /> Let's Talk
+              <FaPhoneAlt className="inline-block mr-3" /> Let&apos;s Talk
             </h2>
             <p className="text-green-400 ml-2"> (123) 456-7890</p>
           </div>
