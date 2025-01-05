@@ -11,7 +11,7 @@ const Footer = () => {
                     alt="Footer Background"
                     layout="fill"
                     objectFit="cover"
-                    className="absolute inset-0 z-0 opacity-50"
+                    className="absolute inset-0 z-0 opacity-55"
                 />
             </div>
             <div className="relative z-10 container mx-auto px-4">

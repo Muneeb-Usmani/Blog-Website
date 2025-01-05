@@ -11,8 +11,11 @@ const POSTS_QUERY = defineQuery(`*[
   "slug": slug.current,
   "authorName": author->name,
   "imageUrl": mainImage.asset->url,
-  publishedAt
+  publishedAt,
+  body
 } | order(publishedAt desc)`);
+
+
 
 export default async function IndexPage() {
   const { data: posts } = await sanityFetch({ query: POSTS_QUERY });
@@ -28,7 +31,7 @@ export default async function IndexPage() {
 
       <section className="container mx-auto">
         <ul className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post: { _id: string; title: string; slug: string; authorName: string; imageUrl: string; publishedAt: string }) => (
+          {posts.map((post: { _id: string; title: string; slug: string; authorName: string; imageUrl: string; publishedAt: string; body: any }) => (
             <li
               key={post._id}
               className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105"
@@ -47,6 +50,11 @@ export default async function IndexPage() {
                   <h2 className="text-2xl font-semibold text-gray-800 hover:underline">
                     {post.title}
                   </h2>
+                  {post.body && post.body.length > 0 && post.body[0].children && post.body[0].children.length > 0 && (
+                    <p className="line-clamp-3 overflow-hidden text-ellipsis pt-2">
+                      {post.body[0].children[0].text || ""}
+                    </p>
+                  )}
                   <p className="text-gray-600 mt-2">
                     {post.authorName && (
                       <>

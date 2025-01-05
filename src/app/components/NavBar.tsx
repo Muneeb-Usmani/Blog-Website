@@ -10,13 +10,13 @@ const NavBar: React.FC = () => {
     return (
         <div className="flex-grow relative">
             <nav className="relative">
-                <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 z-0 bg-gray-500">
                     <Image
                         src="/sea.jpg"
                         alt="Nav Background"
                         layout="fill"
                         objectFit="cover"
-                        className="opacity-100"
+                        className="opacity-80"
                     />
                 </div>
                 <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">

@@ -10,8 +10,8 @@ const Content = () => {
 
         <p className="text-lg text-gray-700 leading-relaxed mb-6 text-center">
           At Sea World, we believe in blending education with adventure through
-          our development programs & camps. Our kids&apos; summer camp programs offer
-          a one of a kind opportunity for youth to connect with the ocean, build
+          our development programs & camps. Our kid&apos;s summer camp programs offer
+          a one-of-a-kind opportunity for youth to connect with the ocean, build
           outdoor skills, and enjoy learning outside the traditional classroom.
           Camper explore marine ecosystems, environmental conservation, and
           sustainability through fun, hands-on activities that turn every day
