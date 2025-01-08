@@ -7,7 +7,6 @@ import { PortableText, PortableTextComponents} from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Head from "next/head";
 import { CalendarIcon, PencilIcon } from "@heroicons/react/24/solid";
 import CommentsSection from "@/app/components/CommentsSection";
 
@@ -91,7 +90,7 @@ export default async function BlogPage({
     notFound();
   }
 
-  const { title, mainImage, publishedAt, author, categories, body } = post;
+  const { title, mainImage, publishedAt, author, body } = post;
 
   const blogImageUrl = mainImage
     ? urlFor(mainImage)?.width(1200).height(600).url()
@@ -107,25 +106,18 @@ export default async function BlogPage({
 
   return (
     <>
-      <Head>
-        <title>{title} | Blog</title>
-      </Head>
+      
       <main>
-        <section
-          className="relative w-full h-[500px] bg-gray-200"
-          style={{
-            backgroundImage: `url(${blogImageUrl})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center px-4">
-              {title}
-            </h1>
-          </div>
-        </section>
-
+      <section
+  className="relative mt-8 mx-8  h-[500px] bg-gray-200 bg-cover bg-center rounded-3xl overflow-hidden shadow-lg"
+  style={{ backgroundImage: `url(${blogImageUrl})` }}
+>
+  <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center px-4">
+      {title}
+    </h1>
+  </div>
+</section>
         <section className="container mx-auto px-4 py-12 flex items-center flex-col md:flex-row">
           <div className="hidden md:block sm:block sm:w-[7%] md:w-[15%]"></div>
             <article className="prose prose-lg max-w-none text-gray-800 sm:w-[85%] md:w-[70%] w-full space-y-8">

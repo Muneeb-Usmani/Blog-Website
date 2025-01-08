@@ -81,7 +81,7 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="w-full bg-cyan-700  text-white py-2 rounded transition hover:bg-cyan-800"
+            className="w-full bg-cyan-700  text-white py-2 rounded hover:bg-cyan-600 transition duration-300"
           >
             Send Message
           </button>

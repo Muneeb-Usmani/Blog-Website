@@ -21,7 +21,7 @@ const Banner = () => {
           </p>
           <Link
             href="#"
-            className="mt-6 inline-block bg-cyan-700 text-white py-2 px-4 rounded-lg text-base md:text-lg font-light">
+            className="mt-6 inline-block bg-cyan-700 text-white py-2 px-4 rounded-lg text-base md:text-lg font-light hover:bg-cyan-600 transition duration-300">
             Explore
           </Link>
         </div>

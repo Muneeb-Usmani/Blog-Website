@@ -1,7 +1,7 @@
 export default function WhyUs() {
   return (
       <div className="py-20 bg-gray-50 container mx-auto px-6 md:px-12 lg:px-20">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center">
           Why Choose Us
         </h2>
         <p className="mt-6 text-lg text-gray-600 text-center max-w-3xl mx-auto">
@@ -23,7 +23,7 @@ export default function WhyUs() {
           species like turtles, whales, and sharks. We are campaigning around
           the globe to protect and restore the world&apos;s oceans.
         </p>
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center">
           Our Achievements
         </h2>
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
