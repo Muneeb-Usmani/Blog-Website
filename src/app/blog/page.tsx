@@ -22,10 +22,13 @@ export default async function IndexPage() {
   return (
     <main className="bg-gray-50 min-h-screen p-8">
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-800">Our Blogs</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
+          Our Blogs
+        </h1>
         <p className="text-gray-600 mt-4">
           Welcome to our blog, filled with interesting facts of life beneath the
-          water&apos;s surface. Learn about the animals we have here at Sea World.
+          water&apos;s surface. Learn about the animals we have here at Sea
+          World.
         </p>
       </div>
 

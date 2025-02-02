@@ -3,13 +3,12 @@ import { sanityFetch } from "@/app/sanity/live";
 import imageUrlBuilder from "@sanity/image-url";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { defineQuery } from "next-sanity";
-import { PortableText, PortableTextComponents} from "@portabletext/react";
+import { PortableText, PortableTextComponents } from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CalendarIcon, PencilIcon } from "@heroicons/react/24/solid";
 import CommentsSection from "@/app/components/CommentsSection";
-
 
 const BLOG_QUERY = defineQuery(`*[slug.current == $slug && _type == "post"][0]{
   title,
@@ -47,7 +46,9 @@ const myPortableTextComponents: PortableTextComponents = {
     h2: ({ children }) => <h2 className="text-3xl font-bold">{children}</h2>,
     h3: ({ children }) => <h3 className="text-2xl font-bold">{children}</h3>,
     h4: ({ children }) => <h4 className="text-xl font-bold">{children}</h4>,
-    blockquote: ({ children }) => <blockquote className="border-l-4 pl-4 italic">{children}</blockquote>,
+    blockquote: ({ children }) => (
+      <blockquote className="border-l-4 pl-4 italic">{children}</blockquote>
+    ),
     normal: ({ children }) => <p className="text-base">{children}</p>,
   },
   marks: {
@@ -106,43 +107,45 @@ export default async function BlogPage({
 
   return (
     <>
-      
       <main>
-      <section
-  className="relative mt-8 mx-8  h-[500px] bg-gray-200 bg-cover bg-center rounded-3xl overflow-hidden shadow-lg"
-  style={{ backgroundImage: `url(${blogImageUrl})` }}
->
-  <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center px-4">
-      {title}
-    </h1>
-  </div>
-</section>
+        <section
+          className="relative mt-8 mx-8  h-[500px] bg-gray-200 bg-cover bg-center rounded-3xl overflow-hidden shadow-lg"
+          style={{ backgroundImage: `url(${blogImageUrl})` }}
+        >
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center px-4">
+              {title}
+            </h1>
+          </div>
+        </section>
         <section className="container mx-auto px-4 py-12 flex items-center flex-col md:flex-row">
           <div className="hidden md:block sm:block sm:w-[7%] md:w-[15%]"></div>
-            <article className="prose prose-lg max-w-none text-gray-800 sm:w-[85%] md:w-[70%] w-full space-y-8">
+          <article className="prose prose-lg max-w-none text-gray-800 sm:w-[85%] md:w-[70%] w-full space-y-8">
             <div className="flex flex-col items-center">
               <p className="text-gray-600 font-semibold ">Publisher Details</p>
               <div className="flex items-center justify-center space-x-4 mb-8 text-gray-600 italic">
-              {author?.name && (
-                <div className="flex items-center space-x-1">
-                <PencilIcon className=" h-5 w-5" />
-                <span> {author.name}</span>
-                </div>
-              )}
-              {formattedDate && (
-                <div className="flex items-center space-x-1">
-                <CalendarIcon className="h-5 w-5" />
-                <span>{formattedDate}</span>
-                </div>
-              )}
+                {author?.name && (
+                  <div className="flex items-center space-x-1">
+                    <PencilIcon className=" h-5 w-5" />
+                    <span> {author.name}</span>
+                  </div>
+                )}
+                {formattedDate && (
+                  <div className="flex items-center space-x-1">
+                    <CalendarIcon className="h-5 w-5" />
+                    <span>{formattedDate}</span>
+                  </div>
+                )}
               </div>
             </div>
 
             <div className="space-y-4">
-  <PortableText value={body} components={myPortableTextComponents} />
-</div>
-            </article>
+              <PortableText
+                value={body}
+                components={myPortableTextComponents}
+              />
+            </div>
+          </article>
 
           <div className="hidden md:block sm:block sm:w-[7%] md:w-[15%]"></div>
         </section>

@@ -1,5 +1,5 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 const TravelWithUs = () => {
   return (
@@ -9,68 +9,47 @@ const TravelWithUs = () => {
           Travel With Us
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
-          <div className="flex flex-col items-center bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div className="relative w-full h-48">
-              <Image
-                src="/snorkeling.jpg"
-                alt="Snorkeling Trips"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
-              />
-              <div className="absolute -bottom-0 left-0 right-0 text-left text-white bg-gradient-to-t from-black p-2 rounded-b-lg">
-                <p className="text-lg font-medium">Snorkeling Trips</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            {
+              src: "/snorkeling.jpg",
+              alt: "Snorkeling Trips",
+              title: "Snorkeling Trips",
+            },
+            {
+              src: "/wildlife.jpeg",
+              alt: "WildLife Encounters",
+              title: "Wildlife Encounters",
+            },
+            {
+              src: "/volunteer.jpeg",
+              alt: "Volunteer Trips",
+              title: "Volunteer Trips",
+            },
+            {
+              src: "/familytrip.jpg",
+              alt: "Family Trips",
+              title: "Family Trips",
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+            >
+              <div className="relative w-full h-48 group">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                />
+                <div className="absolute -bottom-0 left-0 right-0 text-left text-white bg-gradient-to-t from-black p-2 rounded-b-lg">
+                  <p className="text-lg font-medium">{item.title}</p>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="flex flex-col items-center bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div className="relative w-full h-48">
-              <Image
-                src="/wildlife.jpeg"
-                alt="WildLife Encounters"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
-              />
-             <div className="absolute -bottom-0 left-0 right-0 text-left text-white bg-gradient-to-t from-black p-2 rounded-b-lg">
-                <p className="text-lg font-medium">Wildlife Encounters</p>
-              </div>
-            </div>
-          </div>
-
-          {/* City */}
-          <div className="flex flex-col items-center bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div className="relative w-full h-48">
-              <Image
-                src="/volunteer.jpeg"
-                alt="Volunteer Trips"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
-              />
-              <div className="absolute -bottom-0 left-0 right-0 text-left text-white bg-gradient-to-t from-black p-2 rounded-b-lg">
-                <p className="text-lg font-medium">Volunteer Trips</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Forest */}
-          <div className="flex flex-col items-center bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div className="relative w-full h-48">
-              <Image
-                src="/familytrip.jpg"
-                alt="Family Trips"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
-              />
-              <div className="absolute -bottom-0 left-0 right-0 text-left text-white bg-gradient-to-t from-black p-2 rounded-b-lg">
-                <p className="text-lg font-medium">Family Trips</p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -78,4 +57,3 @@ const TravelWithUs = () => {
 };
 
 export default TravelWithUs;
-

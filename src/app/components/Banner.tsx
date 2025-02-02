@@ -1,6 +1,6 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 const Banner = () => {
   return (
@@ -15,13 +15,19 @@ const Banner = () => {
           className="w-full h-full"
         />
         <div className="absolute bottom-10 left-10 text-white z-20">
-          <h1 className="text-4xl sm:text-5xl font-bold md:text-6xl md:font-extrabold">Sea World</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold md:text-6xl md:font-extrabold">
+            Sea World
+          </h1>
           <p className="mt-2 md:mt-4 text-lg sm:text-xl md:text-2xl">
-            Our mission is to get youth excited about our<span className="sm:block">ocean and empower them to be ocean heroes!</span>
+            Our mission is to get youth excited about our
+            <span className="sm:block">
+              ocean and empower them to be ocean heroes!
+            </span>
           </p>
           <Link
-            href="#"
-            className="mt-6 inline-block bg-cyan-700 text-white py-2 px-4 rounded-lg text-base md:text-lg font-light hover:bg-cyan-600 transition duration-300">
+            href="/blog"
+            className="mt-6 inline-block bg-cyan-700 text-white py-2 px-4 rounded-lg text-base md:text-lg font-light hover:bg-cyan-600 transition duration-300"
+          >
             Explore
           </Link>
         </div>
